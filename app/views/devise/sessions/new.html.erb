@@ -1,6 +1,7 @@
 <% require 'version' %>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:name=>"login_form"}) do |f| %>
+  <%= render :partial => "devise/sessions/vsac_auth" %>
   <div class="fields">
     <%= f.label :email %>
     <%= f.email_field :email %>

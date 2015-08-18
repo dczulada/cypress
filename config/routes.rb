@@ -1,7 +1,7 @@
 Cypress::Application.routes.draw do
   root :to => "vendors#index"
   #match "/delayed_job" => DelayedJobMongoidWeb, :anchor => false
-  devise_for :users
+  devise_for :users, :controllers => {:sessions => "users/sessions"}
 
   get '/admin' => 'admin#index'
   get "/admin/index"
@@ -14,6 +14,9 @@ Cypress::Application.routes.draw do
   post "/admin/activate_bundle"
   get "/admin/delete_bundle"
   post "/admin/clear_database"
+
+  resource :vsac_user
+  get '/vsac_users' => "vsac_users#new"
 
 
 
