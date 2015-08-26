@@ -6,6 +6,12 @@ class ErrorsController < ApplicationController
     end
   end
 
+  def error_401
+    respond_to do |format|
+      format.all { render nothing: true, status: 401 }
+    end
+  end
+
   def error_500
   end
 end

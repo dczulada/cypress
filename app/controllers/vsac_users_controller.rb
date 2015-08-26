@@ -1,15 +1,9 @@
 require 'version'
 require 'openssl'
 require 'rest-client'
+require 'pry'
 
-class VsacUsersController < ApplicationController
-  def create
-    if user = VsacUser.authenticate(params[:user], params[:password])
-      render(:file => File.join(Rails.root, 'public/404.html'), :status => 200, :layout => false)
-    else
-      render(:file => File.join(Rails.root, 'public/500.html'), :status => 401, :layout => false)
-    end
-  end
+class VsacUsersController < ErrorsController
 
   def show
     httpAuth = request.headers['Authorization']
@@ -19,14 +13,15 @@ class VsacUsersController < ApplicationController
       userPass = userStr.split(":")
       userName = userPass.first
       password = userPass.last
-
       if user = VsacUser.authenticate(userName, password)
-        render(:file => File.join(Rails.root, 'public/404.html'), :status => 200, :layout => false)
+        respond_to do |format|
+          format.all { render nothing: true, status: 200 }
+        end
       else
-        render(:file => File.join(Rails.root, 'public/500.html'), :status => 401, :layout => false)
+        error_401
       end
     else
-      render(:file => File.join(Rails.root, 'public/404.html'), :status => 404, :layout => false)
+      error_401
     end
   end
 end
