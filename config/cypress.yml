@@ -35,6 +35,7 @@ validation:
     qrda_cat_3: resources/schematron/qrda/cat_3/QRDA Category III.sch
 
 nlm:
+  license_code: REPLACE_ME
   ticket_url: https://vsac.nlm.nih.gov/vsac/ws/Ticket
   api_url: https://vsac.nlm.nih.gov/vsac/ws/RetrieveValueSet
   output_dir: ./resources/schematron/qrda/qrda_cat_1/generic-schematron
