@@ -1,7 +1,8 @@
 Cypress::Application.routes.draw do
   root :to => "vendors#index"
   #match "/delayed_job" => DelayedJobMongoidWeb, :anchor => false
-  devise_for :users
+  #uncomment to use on demo server
+  devise_for :users #, :controllers => {:registrations => "users/registrations"}
 
   get '/admin' => 'admin#index'
   get "/admin/index"
