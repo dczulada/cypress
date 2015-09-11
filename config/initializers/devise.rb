@@ -191,9 +191,8 @@ Devise.setup do |config|
   # change the failure app, you can configure them inside the config.warden block.
   #
 
-  # uncomment below to enable vsac authentication
-  #config.warden do |manager|
-  #  manager.strategies.add(:vsac_password, Devise::Strategies::Vsac)
-  #  manager.default_strategies(:scope => :user).unshift :vsac_password
-  #end
+  config.warden do |manager|
+    manager.strategies.add(:vsac_password, Devise::Strategies::Vsac)
+    manager.default_strategies(:scope => :user).unshift :vsac_password
+  end
 end

@@ -1,8 +1,9 @@
 <% require 'version' %>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:name=>"login_form"}) do |f| %>
-  <!-- Uncomment for VSAC username password-->
-  <!-- %= render :partial => "devise/sessions/vsac_auth" % -->
+  <% if APP_CONFIG["nlm"]["enabled"] == true %>
+    <%= render :partial => "devise/sessions/vsac_auth" %>
+  <% end %>
   <div class="fields">
     <%= f.label :email %>
     <%= f.email_field :email %>

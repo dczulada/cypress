@@ -35,6 +35,7 @@ validation:
     qrda_cat_3: resources/schematron/qrda/cat_3/QRDA Category III.sch
 
 nlm:
+  enabled: false
   license_code: ReplaceThis
   nlm_url: https://uts-ws.nlm.nih.gov/restful/isValidUMLSUser
   ticket_url: https://vsac.nlm.nih.gov/vsac/ws/Ticket

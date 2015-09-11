@@ -1,6 +1,9 @@
 module Devise
   module Strategies
     class Vsac < Base
+      def valid?
+        APP_CONFIG["nlm"]["enabled"] == true
+      end
       def authenticate!
         proxy = ENV['http_proxy']
         nlm_license= APP_CONFIG["nlm"]["license_code"]
